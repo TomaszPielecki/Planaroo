@@ -1,3 +1,28 @@
+<?php
+/* Smarty version 3.1.33, created on 2025-05-17 18:47:03
+  from 'C:\Users\tomas\Desktop\Planaroo\smarty\templates\add.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_6828bd87aeb340_81544637',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '8b9a7ece0504492f9a78c796ecdeb23cf6434566' => 
+    array (
+      0 => 'C:\\Users\\tomas\\Desktop\\Planaroo\\smarty\\templates\\add.tpl',
+      1 => 1747500420,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_6828bd87aeb340_81544637 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Users\\tomas\\Desktop\\Planaroo\\libs\\plugins\\modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -66,7 +91,10 @@
     </div>
 
     <footer>
-        <p>&copy; {$smarty.now|date_format:"%Y"} Zarządzanie Projektami | Created by Tomasz Pielecki</p>
+        <p>&copy; <?php echo smarty_modifier_date_format(time(),"%Y");?>
+ Zarządzanie Projektami | Created by Tomasz Pielecki</p>
     </footer>
 </body>
 </html>
+<?php }
+}
