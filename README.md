@@ -1,8 +1,14 @@
 # Planaroo - System Zarządzania Projektami
 
-Planaroo to kompleksowe rozwiązanie do zarządzania projektami i zadaniami, stworzone z myślą o małych i średnich firmach. System umożliwia efektywne planowanie, monitorowanie oraz raportowanie postępów projektów.
+Planaroo to kompleksowe rozwiązanie do zarządzania projektami i zadaniami, stworzone z myślą o małych i średnich firmach. System umożliwia efektywne planowanie, monitorowanie oraz raportowanie postępów projektów. Obsługuje logowanie użytkowników i działa zarówno na SQLite (domyślnie), jak i MySQL.
 
 ## Funkcjonalności
+
+
+### Logowanie i rejestracja użytkowników
+- Bezpieczne logowanie i rejestracja (hasła bcrypt)
+- Ochrona wszystkich funkcji przed niezalogowanymi użytkownikami
+- Domyślne konto administratora: `admin@planaroo.pl` / `password`
 
 ### Zarządzanie Projektami
 
@@ -36,34 +42,49 @@ Planaroo to kompleksowe rozwiązanie do zarządzania projektami i zadaniami, stw
 
 ## Technologia
 
-- **Backend**: PHP
+- **Backend**: PHP 8.2+
 - **Frontend**: HTML, CSS, JavaScript
 - **Szablony**: Smarty
-- **Baza danych**: MySQL
+- **Baza danych**: SQLite (domyślnie, automatyczna inicjalizacja) lub MySQL
 - **Biblioteki**: FontAwesome, FullCalendar
 
 ## Struktura Projektu
 
 - `/controllers` - Kontrolery obsługujące logikę biznesową
 - `/models` - Modele zarządzające dostępem do danych
-- `/views` - Widoki prezentujące dane użytkownikowi
 - `/config` - Pliki konfiguracyjne
 - `/css` - Arkusze stylów
-- `/js` - Skrypty JavaScript
+- `/libs` - Biblioteki (Smarty, autoloader)
+- `/inc` - Dodatkowe pliki (np. SQL)
 - `/smarty/templates` - Szablony Smarty
+- `/screenshots` - Zrzuty ekranu aplikacji
 
 ## Instalacja
 
-1. Sklonuj repozytorium na serwer z PHP 7.4+ i MySQL
-2. Zaimportuj strukturę bazy danych z pliku `database.sql`
-3. Skonfiguruj połączenie z bazą danych w pliku `db.php`
-4. Uruchom aplikację przez przeglądarkę
+1. Sklonuj repozytorium na serwer z PHP 8.2+ (np. XAMPP, Laragon, built-in serwer PHP)
+2. Wejdź do katalogu projektu i uruchom serwer:  
+	`php -S localhost:8080`
+3. Otwórz w przeglądarce: [http://localhost:8080](http://localhost:8080)
+4. Domyślne konto administratora:  
+	Email: `admin@planaroo.pl`  
+	Hasło: `password`
+
+Nie musisz ręcznie zakładać bazy — plik SQLite utworzy się automatycznie przy pierwszym uruchomieniu.
+
+## Zrzuty ekranu
+
+| Logowanie | Projekty | Zadania |
+|-----------|----------|---------|
+| ![login](screenshots/01_login.png) | ![projekty](screenshots/03_projekty.png) | ![zadania](screenshots/04_zadania.png) |
+
+| Kalendarz | Śledzenie czasu | Dodawanie projektu |
+|-----------|----------------|--------------------|
+| ![kalendarz](screenshots/05_kalendarz.png) | ![czas pracy](screenshots/06_czas_pracy.png) | ![dodaj projekt](screenshots/07_dodaj_projekt.png) |
 
 ## Plany rozwoju
 
 ### Krótkoterminowe (1-3 miesiące)
 
-- Dodanie systemu autentykacji użytkowników
 - Implementacja uprawnień dostępu (role: administrator, kierownik projektu, pracownik)
 - Dodanie funkcji filtrowania i sortowania zadań
 - Rozbudowa modułu kalendarza o widok tygodniowy i miesięczny
