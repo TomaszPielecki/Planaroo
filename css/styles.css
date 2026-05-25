@@ -73,6 +73,13 @@ header {
   margin-right: 5px;
 }
 
+.navbar .nav-links li.nav-user span {
+  color: #ecf0f1;
+  padding: 8px 12px;
+  display: inline-block;
+  font-size: 0.9em;
+  opacity: 0.85;
+}
 /* Kontener główny */
 .container {
   max-width: 1200px;

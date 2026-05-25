@@ -9,6 +9,7 @@ class ExportController extends Controller {
     
     public function __construct() {
         parent::__construct();
+        $this->requireAuth();
         $this->projectModel = new ProjectModel();
         $this->taskModel = new TaskModel();
     }

@@ -9,6 +9,7 @@ class TimeTrackingController extends Controller {
     
     public function __construct() {
         parent::__construct();
+        $this->requireAuth();
         $this->timeLogModel = new TimeLogModel();
         $this->taskModel = new TaskModel();
     }

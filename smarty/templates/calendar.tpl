@@ -68,6 +68,10 @@
                 <li><a href="index.php"><i class="fas fa-home"></i> Strona główna</a></li>
                 <li><a href="index.php?action=add"><i class="fas fa-plus"></i> Nowy projekt</a></li>
                 <li><a href="index.php?action=calendar" class="active"><i class="fas fa-calendar-alt"></i> Kalendarz</a></li>
+                {if $current_user}
+                <li class="nav-user"><span><i class="fas fa-user-circle"></i> {$current_user.username}</span></li>
+                <li><a href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i> Wyloguj</a></li>
+                {/if}
             </ul>
         </nav>
     </header>

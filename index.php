@@ -38,6 +38,20 @@ if (isset($_GET['action'])) {
             $controller = 'Project';
             $action = 'calendar';
             break;
+
+        // Autentykacja
+        case 'login':
+            $controller = 'Auth';
+            $action = 'login';
+            break;
+        case 'register':
+            $controller = 'Auth';
+            $action = 'register';
+            break;
+        case 'logout':
+            $controller = 'Auth';
+            $action = 'logout';
+            break;
             
         // Zadania
         case 'view_tasks':

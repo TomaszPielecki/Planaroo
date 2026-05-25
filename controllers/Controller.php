@@ -14,12 +14,21 @@ abstract class Controller {
     
     // Renderuje widok z podanymi danymi
     protected function render($template, $data = []) {
+        $data['current_user'] = $_SESSION['user'] ?? null;
         foreach ($data as $key => $value) {
             $this->smarty->assign($key, $value);
         }
         $this->smarty->display($template);
     }
     
+    // Sprawdza czy użytkownik jest zalogowany, w przeciwnym razie przekierowuje na login
+    protected function requireAuth() {
+        if (!isset($_SESSION['user'])) {
+            header('Location: index.php?action=login');
+            exit;
+        }
+    }
+
     // Przekierowuje do podanej ścieżki
     protected function redirect($path, $params = []) {
         $queryString = http_build_query($params);

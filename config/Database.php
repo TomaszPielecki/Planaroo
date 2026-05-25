@@ -77,6 +77,14 @@ class Database {
                 FOREIGN KEY (zadanie_id) REFERENCES zadania(id) ON DELETE CASCADE
             );
 
+            CREATE TABLE IF NOT EXISTS users (
+                id              INTEGER PRIMARY KEY AUTOINCREMENT,
+                username        TEXT    NOT NULL,
+                email           TEXT    NOT NULL UNIQUE,
+                password        TEXT    NOT NULL,
+                data_utworzenia TEXT    DEFAULT (datetime('now','localtime'))
+            );
+
             INSERT INTO projekty (nazwa, opis, data_rozpoczecia, data_zakonczenia, status, odpowiedzialny) VALUES
                 ('Nowa strona internetowa', 'Stworzenie nowej strony internetowej firmy', '2023-01-15', '2023-03-30', 'zakończony', 'Jan Kowalski'),
                 ('System CRM', 'Wdrożenie systemu zarządzania relacjami z klientami', '2023-02-10', NULL, 'w trakcie', 'Anna Nowak'),
@@ -105,6 +113,9 @@ class Database {
                 ('Projektowanie UX', 'Projektowanie interfejsu użytkownika', '2023-06-10', 'do zrobienia', 'Karolina Mazur', 'wysoki', 5),
                 ('Prototypowanie', 'Stworzenie prototypu aplikacji', '2023-06-30', 'do zrobienia', 'Piotr Adamski', 'średni', 5),
                 ('Testowanie koncepcji', 'Testy z użytkownikami', '2023-07-15', 'do zrobienia', 'Magdalena Lewandowska', 'wysoki', 5);
+
+            INSERT INTO users (username, email, password) VALUES
+                ('admin', 'admin@planaroo.pl', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
         ");
     }
 

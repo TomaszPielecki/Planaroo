@@ -9,6 +9,7 @@ class TaskController extends Controller {
     
     public function __construct() {
         parent::__construct();
+        $this->requireAuth();
         $this->taskModel = new TaskModel();
         $this->projectModel = new ProjectModel();
     }
